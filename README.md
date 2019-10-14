@@ -1,0 +1,2 @@
+# NAOTrainingRTC
+ NAOTrainingRTC(contest)
