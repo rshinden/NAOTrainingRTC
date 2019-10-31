@@ -1,0 +1,54 @@
+# judge CMake config file
+#
+# This file sets the following variables:
+# judge_FOUND - Always TRUE.
+# judge_INCLUDE_DIRS - Directories containing the judge include files.
+# judge_IDL_DIRS - Directories containing the judge IDL files.
+# judge_LIBRARIES - Libraries needed to use judge.
+# judge_DEFINITIONS - Compiler flags for judge.
+# judge_VERSION - The version of judge found.
+# judge_VERSION_MAJOR - The major version of judge found.
+# judge_VERSION_MINOR - The minor version of judge found.
+# judge_VERSION_REVISION - The revision version of judge found.
+# judge_VERSION_CANDIDATE - The candidate version of judge found.
+
+message(STATUS "Found judge-@PROJECT_VERSION@")
+set(judge_FOUND TRUE)
+
+find_package(<dependency> REQUIRED)
+
+#set(judge_INCLUDE_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@"
+#    ${<dependency>_INCLUDE_DIRS}
+#    )
+#
+#set(judge_IDL_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl")
+set(judge_INCLUDE_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@"
+    ${<dependency>_INCLUDE_DIRS}
+    )
+set(judge_IDL_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@/idl")
+
+
+if(WIN32)
+    set(judge_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_STATIC_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+else(WIN32)
+    set(judge_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_SHARED_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+endif(WIN32)
+
+set(judge_DEFINITIONS ${<dependency>_DEFINITIONS})
+
+set(judge_VERSION @PROJECT_VERSION@)
+set(judge_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
+set(judge_VERSION_MINOR @PROJECT_VERSION_MINOR@)
+set(judge_VERSION_REVISION @PROJECT_VERSION_REVISION@)
+set(judge_VERSION_CANDIDATE @PROJECT_VERSION_CANDIDATE@)
+
