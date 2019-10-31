@@ -1,4 +1,4 @@
-# honya
+# training guide RTC
 
 ## 概要  
 
@@ -32,6 +32,3 @@
 - JuliusRTC:音声認識
 - SEAT:対話制御
 
-## ソースコード  
-
-- ソースと動画とマニュアルは[]にあります
