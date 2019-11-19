@@ -308,7 +308,7 @@ class StandUp(OpenRTM_aist.DataFlowComponentBase):
 						NAO_left(self._NAO_IPaddress[0], self._NAO_Port[0])
 					if self._FSR_right_front >= self._FSR_right_front +10:
 						NAO_right(self._NAO_IPaddress[0], self._NAO_Port[0])
-
+			#終了合図
 			if self._count == (self._count_number - 1):
 				NAO_end(self._NAO_IPaddress[0], self._NAO_Port[0])
 				print("end")
@@ -418,7 +418,6 @@ def NAO_activate(robotIP, PORT):
 	speechProxy = ALProxy("ALTextToSpeech", robotIP, PORT)
 	motionProxy.wakeup
 	speechProxy.say("今日も頑張ろう")
-	#motionProxy.wakeup
 	speechProxy.say("ぼくの動きのまねをしてね")
 	postureProxy.goToPosture("StandInit", 0.1)
 	speechProxy.say("さんはい")
@@ -491,23 +490,12 @@ def NAO_right(robotIP, PORT):
 	motionProxy.rest()
 
 def NAO__ss__aa(robotIP, PORT):
-
 	motionProxy  = ALProxy("ALMotion", robotIP, PORT)
 	postureProxy = ALProxy("ALRobotPosture", robotIP, PORT)
 	speechProxy = ALProxy("ALTextToSpeech", robotIP, PORT)
 	motionProxy.wakeUp()
 	speechProxy.say("上手に立てたね")
 	speechProxy.say("立ち上がり回数が目標に到達しました")
-	motionProxy.rest()
-	#postureProxy = ALProxy("ALRobotPosture", "localhost", 9559)
-	#postureProxy.goToPosture("StandZero", 1.0)
-
-	#motionProxy.setAngles("HeadYaw", -90.0*(2*math.pi/360.0), 1.0)
-	#time.sleep(1.0)
-	#motionProxy.setAngles("HeadYaw", 90.0*(2*math.pi/360.0), 1.0)
-	#time.sleep(1.0)
-	#motionProxy.setAngles("HeadYaw", 0, 1.0)
-	#time.sleep(1.0)
 	motionProxy.rest()
 
 if __name__ == "__main__":

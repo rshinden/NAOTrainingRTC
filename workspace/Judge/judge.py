@@ -198,31 +198,26 @@ class Judge(OpenRTM_aist.DataFlowComponentBase):
 		#
 		#
 	def onExecute(self, ec_id):
-		#立ち上がり判定
-		#データ読込
+	#立ち上がり判定
+		#開始の合図読込
 		if self._signIn.isNew():
 			self._d_sign = self._signIn.read()
 			sign = self._d_sign.data
 			print(sign)
+			#スイッチON
 			if sign == "kaishi":
 				self._switch = "on"
 				print("on")
-			
-
+		#センサ値の読み込み開始
 		if self._switch == "on":
-			#センサ値の読み込み
 			self._d_data = self._dataIn.read()
 			line = self._d_data.data
-		#print(line)
 			line_str = str(line)
 			data = re.split("[,']", line_str)
 			FSR_dic = {}
 			#センサ値の公正
 			for i in range (1,17,1):
 				FSR_dic.setdefault(("FSR" + str(i)), float(data[i-1]))
-				#print(FSR_dic)
-			#print(FSR_dic)
-			#センサ値の公正
 			i = 0
 			for i in range (1,17,1):
 				if FSR_dic["FSR" + str(i)] == 0:
@@ -231,11 +226,9 @@ class Judge(OpenRTM_aist.DataFlowComponentBase):
 					FSR_dic["FSR" + str(i)] = 0.069*math.exp(0.0044*FSR_dic["FSR" + str(i)])*9.8 
 				elif( 990 <= FSR_dic["FSR" + str(i)]) and (FSR_dic["FSR" + str(i)] <= 1024): 
 					FSR_dic["FSR" + str(i)] = 3E-06*math.exp(0.0145*FSR_dic["FSR" + str(i)])*9.8
-			print("oooooooooo", FSR_dic)
-
 			FSR_left_front =  FSR_dic['FSR1'] + FSR_dic['FSR2'] + FSR_dic['FSR3'] + FSR_dic['FSR4'] + FSR_dic['FSR5']
 			FSR_right_front =  FSR_dic['FSR9'] + FSR_dic['FSR10'] + FSR_dic['FSR11'] + FSR_dic['FSR12'] + FSR_dic['FSR13']
-		#センサ値による判定
+			#センサ値による判定
 			if (FSR_dic["FSR3" ] > 12 and FSR_dic["FSR11" ] > 12) :
 				print(FSR_dic["FSR3"])
 				self._resultOut.data = 1
@@ -245,23 +238,9 @@ class Judge(OpenRTM_aist.DataFlowComponentBase):
 
 			else:
 				self._resultOut.data = 0
-				#OpenRTM_aist.setTimestamp(self._resultOut)
 				print("Sending: ", self._resultOut.data)
 				self._outport.write()
-
-
 		return RTC.RTC_OK
-		"""
-			elif FSR_left_front > FSR_right_front + 10:
-				self._resultOut.data = 2
-				#OpenRTM_aist.setTimestamp(self._resultOut)
-				print("Sending: ", self._resultOut.data)
-			elif FSR_right_front > FSR_left_front + 10:
-				self._resultOut.data = 3
-				#OpenRTM_aist.setTimestamp(self._resultOut)
-				print("Sending: ", self._resultOut.data)
-		"""
-
 	
 	#	##
 	#	#

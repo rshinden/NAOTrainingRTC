@@ -80,8 +80,9 @@ class CsvWrite(OpenRTM_aist.DataFlowComponentBase):
 		self._finIn = OpenRTM_aist.InPort("fin", self._d_fin)
 
 
-		self._switch = "off"
+		self._switch = "on"
 		self._first = "true"
+		self._fin = []
 		self._start = 0
 		self._nexttime = 0
 		self._today = datetime.date.today()
@@ -202,24 +203,15 @@ class CsvWrite(OpenRTM_aist.DataFlowComponentBase):
 		#
 		#
 	def onExecute(self, ec_id):
-		global start
-		global nexttime
-
-
 		#センサ値の取得
 		self._d_sensor = self._sensorIn.read()
 		line = self._d_sensor.data
-		#line = self._sensorIn.read()
-		#print(line)
 		line_str = str(line)
-		#print(len(line_str))
-		#print(line_str)
 		data = re.split("[,']", line_str)
 		FSR_dic = {}
 		#辞書に入れる
 		for i in range (1,17,1):
 			FSR_dic.setdefault(("FSR" + str(i)), float(data[i-1]))
-			#print(FSR_dic)
 		#センサ値の公正
 		i = 0
 		for i in range (1,17,1):
@@ -229,7 +221,6 @@ class CsvWrite(OpenRTM_aist.DataFlowComponentBase):
 				FSR_dic["FSR" + str(i)] = 0.069*math.exp(0.0044*FSR_dic["FSR" + str(i)])*9.8 
 			elif( 990 <= FSR_dic["FSR" + str(i)]) and (FSR_dic["FSR" + str(i)] <= 1024): 
 				FSR_dic["FSR" + str(i)] = 3E-06*math.exp(0.0145*FSR_dic["FSR" + str(i)])*9.8
-			#print("oooooooooo", FSR_dic)
 		#開始の合図取得
 		if self._signIn.isNew():
 			self._d_sign = self._signIn.read()
@@ -237,12 +228,7 @@ class CsvWrite(OpenRTM_aist.DataFlowComponentBase):
 			if sign == "kaishi":
 				self._switch = "on"
 				print("GO")
-			#elif sign == ("5" or "10" or "15"):
-			#	print("done")
-			#else:
-			#	name = self._signIn.data
-
-
+		#csvファイルの作成、ヘッダー作成
 		if self._switch == "on":
 			print("switch is on")
 			if self._first == "true":
@@ -250,33 +236,33 @@ class CsvWrite(OpenRTM_aist.DataFlowComponentBase):
 				self._nexttime = time.time() - self._start
 				with open ("./data/" + self._today_str + ".csv", "w") as f:
 					writer = csv.writer(f, lineterminator = '\n')
-					writer.writerow(["time","No,1","No,2","No,3","No,4","No,5","No,6","No,7","No,8","No,9","No,10","No,11","No,12","No,13","No,14","No,15"])
-
-					print("true")
-					print("nexttime is:", self._nexttime)
+					writer.writerow(["time","No,1","No,2","No,3","No,4","No,5","No,6","No,7","No,8","No,9","No,10","No,11","No,12","No,13","No,14","No,15","No,16"])
+					print("csv open")
 					self._first = "false"
 					self._nexttime +=0.1
-					print("resultnexttime", self._nexttime)
 			self._t = time.time() - self._start
-			print(self._t)
-			if self._t >= self._nexttime:
-				print(">>>>>>")
+			if (self._t >= self._nexttime and self._first == "false"):
+				#print(">>>>>>")
+				#書き込み
 				with open ("./data/" + self._today_str + ".csv", "a") as f:
 					print("csv_write")
+					print(self._t)
 					writer = csv.writer(f, lineterminator='\n')
 					writer.writerow([self._t,FSR_dic["FSR1" ], FSR_dic["FSR2" ], FSR_dic["FSR3" ], FSR_dic["FSR4" ], FSR_dic["FSR5" ], FSR_dic["FSR6" ], FSR_dic["FSR7" ], FSR_dic["FSR8" ], FSR_dic["FSR9" ], FSR_dic["FSR10" ], FSR_dic["FSR11" ], FSR_dic["FSR12" ], FSR_dic["FSR13" ], FSR_dic["FSR14" ], FSR_dic["FSR15" ], FSR_dic["FSR16" ]])
 					self._nexttime +=0.1
 			#終了合図の読み込み
 			if self._finIn.isNew():
-				self._d_fin = self._finIn.read
-				fin = self._d_fin
-				print("receive: ", self._d_fin)
-				if fin == "fin":
-					with open ("C:/workspaces/CsvWrite/data/" + self._today_str + ".csv", "a") as f:
-						print("csv_write")
+				self._d_fin = self._finIn.read()
+				self._fin = self._d_fin.data
+				print("receive: ", self._fin)
+				if self._fin == "fin":
+					with open ("./data/" + self._today_str + ".csv", "a") as f:
+						#print("csv_write")
 						writer = csv.writer(f, lineterminator='\n')
 						writer.writerow([self._t,FSR_dic["FSR1" ], FSR_dic["FSR2" ], FSR_dic["FSR3" ], FSR_dic["FSR4" ], FSR_dic["FSR5" ], FSR_dic["FSR6" ], FSR_dic["FSR7" ], FSR_dic["FSR8" ], FSR_dic["FSR9" ], FSR_dic["FSR10" ], FSR_dic["FSR11" ], FSR_dic["FSR12" ], FSR_dic["FSR13" ], FSR_dic["FSR14" ], FSR_dic["FSR15" ], FSR_dic["FSR16" ]])
 						f.close() 
+						self._first = "end"
+						print("close csv")
 		return RTC.RTC_OK
 	
 	#	##
