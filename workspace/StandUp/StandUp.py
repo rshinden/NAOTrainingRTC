@@ -46,7 +46,7 @@ StandUp_spec = ["implementation_id", "StandUp",
 		 "max_instance",      "1", 
 		 "language",          "Python", 
 		 "lang_type",         "SCRIPT",
-		 "conf.default.NAO_IPaddress", "169.254.14.64",
+		 "conf.default.NAO_IPaddress", "127.0.0.1",
 		 "conf.default.NAO_Port", "9559",
 
 		 "conf.__widget__.NAO_IPaddress", "text",
@@ -115,9 +115,9 @@ class StandUp(OpenRTM_aist.DataFlowComponentBase):
 		"""
 		
 		 - Name:  NAO_IPaddress
-		 - DefaultValue: 169.254.14.64
+		 - DefaultValue: 127.0.0.1
 		"""
-		self._NAO_IPaddress = ['169.254.14.64']
+		self._NAO_IPaddress = ['127.0.0.1']
 		"""
 		
 		 - Name:  NAO_Port
@@ -140,7 +140,7 @@ class StandUp(OpenRTM_aist.DataFlowComponentBase):
 	#
 	def onInitialize(self):
 		# Bind variables and configuration variable
-		self.bindParameter("NAO_IPaddress", self._NAO_IPaddress, "169.254.14.64")
+		self.bindParameter("NAO_IPaddress", self._NAO_IPaddress, "127.0.0.1")
 		self.bindParameter("NAO_Port", self._NAO_Port, "9559")
 		
 		# Set InPort buffers
