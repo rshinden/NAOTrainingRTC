@@ -1,0 +1,38 @@
+2019-12-07 19:07:15,769 manager INFO 1.1.0
+2019-12-07 19:07:15,769 manager INFO Copyright (C) 2003-2010
+2019-12-07 19:07:15,769 manager INFO   Noriaki Ando
+2019-12-07 19:07:15,770 manager INFO   Intelligent Systems Research Institute, AIST
+2019-12-07 19:07:15,770 manager INFO Manager starting.
+2019-12-07 19:07:15,770 manager INFO Starting local logging.
+2019-12-07 19:07:15,802 manager.namingmanager INFO NameServer connection succeeded: corba/localhost
+2019-12-07 19:07:17,825 ManagerServant INFO Master manager not found
+2019-12-07 19:07:17,828 manager WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\Manager.py", line 1900, in initManagerServant
+    reffile = file(self._config.getProperty("manager.refstring_path"),'w')
+IOError: [Errno 2] No such file or directory: '/var/log/rtcmanager.ref'
+
+2019-12-07 19:07:17,829 LocalServiceAdmin INFO All the local services are enabled.
+2019-12-07 19:07:17,841 manager INFO Component type conf file: Change.conf loaded.
+2019-12-07 19:07:17,846 ec_base INFO setRate(1000000.000000) done
+2019-12-07 19:07:17,848 ec_base INFO setRate(1000.000000) done
+2019-12-07 19:07:17,848 rtobject INFO 1 execution context was created.
+2019-12-07 19:07:17,857 rtobject INFO Initial active configuration set is default-set.
+2019-12-07 19:07:28,394 SdoServiceAdmin WARNING No available SDO service in the factory: 
+2019-12-07 19:07:28,394 SdoServiceAdmin ERROR type  already exists.
+2019-12-07 19:07:28,397 SdoServiceAdmin WARNING No available SDO service in the factory: IDL:OpenRTM/ComponentObserver:1.0
+2019-12-07 19:07:28,397 SdoServiceAdmin ERROR type d0ce629a-1547-485f-855e-0aea76a5e19b already exists.
+2019-12-07 19:07:36,160 rtobject ERROR Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTObject.py", line 1560, in on_execute
+    ret = self.onExecute(ec_id)
+  File "C:\workspacess\Change\Change.py", line 128, in onExecute
+    data_new = data.split()
+AttributeError: 'list' object has no attribute 'split'
+
+2019-12-07 19:07:42,881 ec_worker ERROR State of the RTC is not ACTIVE_STATE.
+2019-12-07 19:07:51,773 rtobject ERROR Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTObject.py", line 1560, in on_execute
+    ret = self.onExecute(ec_id)
+  File "C:\workspacess\Change\Change.py", line 128, in onExecute
+    data_new = data.split()
+AttributeError: 'list' object has no attribute 'split'
+

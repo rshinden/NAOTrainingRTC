@@ -1,0 +1,31 @@
+2019-12-09 16:59:15,549 manager INFO 1.1.0
+2019-12-09 16:59:15,549 manager INFO Copyright (C) 2003-2010
+2019-12-09 16:59:15,549 manager INFO   Noriaki Ando
+2019-12-09 16:59:15,549 manager INFO   Intelligent Systems Research Institute, AIST
+2019-12-09 16:59:15,551 manager INFO Manager starting.
+2019-12-09 16:59:15,551 manager INFO Starting local logging.
+2019-12-09 16:59:15,556 manager.namingmanager INFO NameServer connection succeeded: corba/localhost
+2019-12-09 16:59:17,575 ManagerServant INFO Master manager not found
+2019-12-09 16:59:17,578 manager WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\Manager.py", line 1900, in initManagerServant
+    reffile = file(self._config.getProperty("manager.refstring_path"),'w')
+IOError: [Errno 2] No such file or directory: '/var/log/rtcmanager.ref'
+
+2019-12-09 16:59:17,611 LocalServiceAdmin INFO All the local services are enabled.
+2019-12-09 16:59:17,625 manager INFO Component type conf file: Judge3.conf loaded.
+2019-12-09 16:59:17,634 ec_base INFO setRate(1000000.000000) done
+2019-12-09 16:59:17,634 ec_base INFO setRate(1000.000000) done
+2019-12-09 16:59:17,635 rtobject INFO 1 execution context was created.
+2019-12-09 16:59:17,651 rtobject INFO Initial active configuration set is default.
+2019-12-09 16:59:22,213 SdoServiceAdmin WARNING No available SDO service in the factory: 
+2019-12-09 16:59:22,213 SdoServiceAdmin ERROR type  already exists.
+2019-12-09 16:59:22,214 SdoServiceAdmin WARNING No available SDO service in the factory: IDL:OpenRTM/ComponentObserver:1.0
+2019-12-09 16:59:22,216 SdoServiceAdmin ERROR type 4b995e84-b1e0-4e9e-bf01-c8ab471f4f37 already exists.
+2019-12-09 16:59:49,453 rtobject ERROR Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTObject.py", line 1560, in on_execute
+    ret = self.onExecute(ec_id)
+  File "C:\workspacess\Judge3\Judge3.py", line 189, in onExecute
+    if self._sensor_left_front >= self._sensor_right_front + self._addvalue:
+TypeError: unsupported operand type(s) for +: 'float' and 'list'
+
+2019-12-09 16:59:54,026 ec_worker ERROR State of the RTC is not ACTIVE_STATE.

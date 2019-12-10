@@ -1,0 +1,31 @@
+2019-12-09 15:34:37,198 manager INFO 1.1.0
+2019-12-09 15:34:37,198 manager INFO Copyright (C) 2003-2010
+2019-12-09 15:34:37,198 manager INFO   Noriaki Ando
+2019-12-09 15:34:37,198 manager INFO   Intelligent Systems Research Institute, AIST
+2019-12-09 15:34:37,198 manager INFO Manager starting.
+2019-12-09 15:34:37,198 manager INFO Starting local logging.
+2019-12-09 15:34:37,198 manager.namingmanager INFO NameServer connection succeeded: corba/localhost
+2019-12-09 15:34:39,276 ManagerServant INFO Master manager not found
+2019-12-09 15:34:39,276 manager WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\Manager.py", line 1900, in initManagerServant
+    reffile = file(self._config.getProperty("manager.refstring_path"),'w')
+IOError: [Errno 2] No such file or directory: '/var/log/rtcmanager.ref'
+
+2019-12-09 15:34:39,276 LocalServiceAdmin INFO All the local services are enabled.
+2019-12-09 15:34:39,276 manager INFO Component type conf file: Change.conf loaded.
+2019-12-09 15:34:39,276 ec_base INFO setRate(1000000.000000) done
+2019-12-09 15:34:39,276 ec_base INFO setRate(1000.000000) done
+2019-12-09 15:34:39,276 rtobject INFO 1 execution context was created.
+2019-12-09 15:34:39,276 rtobject INFO Initial active configuration set is default-set.
+2019-12-09 15:34:42,542 SdoServiceAdmin WARNING No available SDO service in the factory: 
+2019-12-09 15:34:42,542 SdoServiceAdmin ERROR type  already exists.
+2019-12-09 15:34:42,542 SdoServiceAdmin WARNING No available SDO service in the factory: IDL:OpenRTM/ComponentObserver:1.0
+2019-12-09 15:34:42,542 SdoServiceAdmin ERROR type 4d1f43cd-1664-40e8-bb51-fa75fc40b87f already exists.
+2019-12-09 15:34:47,819 rtobject ERROR Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTObject.py", line 1560, in on_execute
+    ret = self.onExecute(ec_id)
+  File "C:\workspacess\Change\Change.py", line 134, in onExecute
+    if FSR_dic["FSR" + str(i)] == 0:
+KeyError: 'FSR15'
+
+2019-12-09 15:34:52,062 ec_worker ERROR State of the RTC is not ACTIVE_STATE.

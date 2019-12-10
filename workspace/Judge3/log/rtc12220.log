@@ -1,0 +1,23 @@
+2019-12-07 16:41:01,371 manager INFO 1.1.0
+2019-12-07 16:41:01,371 manager INFO Copyright (C) 2003-2010
+2019-12-07 16:41:01,371 manager INFO   Noriaki Ando
+2019-12-07 16:41:01,371 manager INFO   Intelligent Systems Research Institute, AIST
+2019-12-07 16:41:01,371 manager INFO Manager starting.
+2019-12-07 16:41:01,371 manager INFO Starting local logging.
+2019-12-07 16:41:01,388 manager.namingmanager INFO NameServer connection succeeded: corba/localhost
+2019-12-07 16:41:03,466 ManagerServant INFO Master manager not found
+2019-12-07 16:41:03,466 manager WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\Manager.py", line 1900, in initManagerServant
+    reffile = file(self._config.getProperty("manager.refstring_path"),'w')
+IOError: [Errno 2] No such file or directory: '/var/log/rtcmanager.ref'
+
+2019-12-07 16:41:03,466 LocalServiceAdmin INFO All the local services are enabled.
+2019-12-07 16:41:03,496 manager INFO Component type conf file: Judge3.conf loaded.
+2019-12-07 16:41:03,513 ec_base INFO setRate(1000000.000000) done
+2019-12-07 16:41:03,513 ec_base INFO setRate(1000.000000) done
+2019-12-07 16:41:03,513 rtobject INFO 1 execution context was created.
+2019-12-07 16:41:03,528 rtobject INFO Initial active configuration set is default.
+2019-12-07 16:41:11,276 SdoServiceAdmin WARNING No available SDO service in the factory: 
+2019-12-07 16:41:11,276 SdoServiceAdmin ERROR type  already exists.
+2019-12-07 16:41:11,276 SdoServiceAdmin WARNING No available SDO service in the factory: IDL:OpenRTM/ComponentObserver:1.0
+2019-12-07 16:41:11,276 SdoServiceAdmin ERROR type d09084b1-e054-4c95-b79f-3fdb556abb06 already exists.

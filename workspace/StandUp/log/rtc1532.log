@@ -1,0 +1,37 @@
+2019-12-05 19:04:15,313 manager INFO 1.1.0
+2019-12-05 19:04:15,313 manager INFO Copyright (C) 2003-2010
+2019-12-05 19:04:15,313 manager INFO   Noriaki Ando
+2019-12-05 19:04:15,313 manager INFO   Intelligent Systems Research Institute, AIST
+2019-12-05 19:04:15,329 manager INFO Manager starting.
+2019-12-05 19:04:15,329 manager INFO Starting local logging.
+2019-12-05 19:04:15,329 manager.namingmanager INFO NameServer connection succeeded: corba/localhost
+2019-12-05 19:04:17,377 ManagerServant INFO Master manager not found
+2019-12-05 19:04:17,377 manager WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\Manager.py", line 1900, in initManagerServant
+    reffile = file(self._config.getProperty("manager.refstring_path"),'w')
+IOError: [Errno 2] No such file or directory: '/var/log/rtcmanager.ref'
+
+2019-12-05 19:04:17,377 LocalServiceAdmin INFO All the local services are enabled.
+2019-12-05 19:04:17,377 ec_base INFO setRate(1000000.000000) done
+2019-12-05 19:04:17,377 ec_base INFO setRate(1000.000000) done
+2019-12-05 19:04:17,377 rtobject INFO 1 execution context was created.
+2019-12-05 19:04:17,392 rtobject INFO Initial active configuration set is default.
+2019-12-05 19:04:38,822 rtobject ERROR Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTObject.py", line 1560, in on_execute
+    ret = self.onExecute(ec_id)
+  File "C:\workspaces\StandUp\StandUp.py", line 249, in onExecute
+    NAO_activate(self._NAO_IPaddress[0], self._NAO_Port[0])
+  File "C:\workspaces\StandUp\StandUp.py", line 416, in NAO_activate
+    motionProxy  = ALProxy("ALMotion", robotIP, PORT)
+  File "C:\Python27\lib\site-packages\naoqi.py", line 344, in __init__
+    inaoqi.proxy.__init__(self, args[0], args[1], args[2])
+  File "C:\Python27\lib\site-packages\inaoqi.py", line 318, in __init__
+    this = _inaoqi.new_proxy(*args)
+RuntimeError: 	ALBroker::createBroker
+	Cannot connect to tcp://169.254.14.64:9559
+
+2019-12-05 19:05:58,753 SdoServiceAdmin WARNING No available SDO service in the factory: 
+2019-12-05 19:05:58,753 SdoServiceAdmin ERROR type  already exists.
+2019-12-05 19:05:58,756 SdoServiceAdmin WARNING No available SDO service in the factory: IDL:OpenRTM/ComponentObserver:1.0
+2019-12-05 19:05:58,756 SdoServiceAdmin ERROR type 1f5b797e-ed06-4146-b65f-a4a1e6ed52f0 already exists.
+2019-12-05 19:06:12,210 ec_worker ERROR State of the RTC is not ACTIVE_STATE.

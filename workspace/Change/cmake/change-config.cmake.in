@@ -1,0 +1,54 @@
+# Change CMake config file
+#
+# This file sets the following variables:
+# Change_FOUND - Always TRUE.
+# Change_INCLUDE_DIRS - Directories containing the Change include files.
+# Change_IDL_DIRS - Directories containing the Change IDL files.
+# Change_LIBRARIES - Libraries needed to use Change.
+# Change_DEFINITIONS - Compiler flags for Change.
+# Change_VERSION - The version of Change found.
+# Change_VERSION_MAJOR - The major version of Change found.
+# Change_VERSION_MINOR - The minor version of Change found.
+# Change_VERSION_REVISION - The revision version of Change found.
+# Change_VERSION_CANDIDATE - The candidate version of Change found.
+
+message(STATUS "Found Change-@PROJECT_VERSION@")
+set(Change_FOUND TRUE)
+
+find_package(<dependency> REQUIRED)
+
+#set(Change_INCLUDE_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@"
+#    ${<dependency>_INCLUDE_DIRS}
+#    )
+#
+#set(Change_IDL_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl")
+set(Change_INCLUDE_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@"
+    ${<dependency>_INCLUDE_DIRS}
+    )
+set(Change_IDL_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@/idl")
+
+
+if(WIN32)
+    set(Change_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_STATIC_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+else(WIN32)
+    set(Change_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_SHARED_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+endif(WIN32)
+
+set(Change_DEFINITIONS ${<dependency>_DEFINITIONS})
+
+set(Change_VERSION @PROJECT_VERSION@)
+set(Change_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
+set(Change_VERSION_MINOR @PROJECT_VERSION_MINOR@)
+set(Change_VERSION_REVISION @PROJECT_VERSION_REVISION@)
+set(Change_VERSION_CANDIDATE @PROJECT_VERSION_CANDIDATE@)
+

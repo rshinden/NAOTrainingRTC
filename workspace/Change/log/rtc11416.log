@@ -1,0 +1,163 @@
+2019-12-09 15:49:23,525 manager INFO 1.1.0
+2019-12-09 15:49:23,525 manager INFO Copyright (C) 2003-2010
+2019-12-09 15:49:23,525 manager INFO   Noriaki Ando
+2019-12-09 15:49:23,525 manager INFO   Intelligent Systems Research Institute, AIST
+2019-12-09 15:49:23,525 manager INFO Manager starting.
+2019-12-09 15:49:23,525 manager INFO Starting local logging.
+2019-12-09 15:49:23,539 manager.namingmanager INFO NameServer connection succeeded: corba/localhost
+2019-12-09 15:49:25,562 ManagerServant INFO Master manager not found
+2019-12-09 15:49:25,565 manager WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\Manager.py", line 1900, in initManagerServant
+    reffile = file(self._config.getProperty("manager.refstring_path"),'w')
+IOError: [Errno 2] No such file or directory: '/var/log/rtcmanager.ref'
+
+2019-12-09 15:49:25,565 LocalServiceAdmin INFO All the local services are enabled.
+2019-12-09 15:49:25,575 manager INFO Component type conf file: Change.conf loaded.
+2019-12-09 15:49:25,582 ec_base INFO setRate(1000000.000000) done
+2019-12-09 15:49:25,584 ec_base INFO setRate(1000.000000) done
+2019-12-09 15:49:25,585 rtobject INFO 1 execution context was created.
+2019-12-09 15:49:25,592 rtobject INFO Initial active configuration set is default-set.
+2019-12-09 15:49:27,973 SdoServiceAdmin WARNING No available SDO service in the factory: 
+2019-12-09 15:49:27,973 SdoServiceAdmin ERROR type  already exists.
+2019-12-09 15:49:27,974 SdoServiceAdmin WARNING No available SDO service in the factory: IDL:OpenRTM/ComponentObserver:1.0
+2019-12-09 15:49:27,974 SdoServiceAdmin ERROR type fb6c4642-e498-4860-af22-930c60a3d54a already exists.
+2019-12-09 15:50:09,049 ec_worker WARNING ExecutionContext is already running.
+2019-12-09 15:50:09,049 ec_base ERROR Invoking on_startup() for each RTC failed.
+2019-12-09 15:52:12,907 data WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 2262, in checkPorts
+    if port._non_existent():
+  File "C:\Python27\lib\site-packages\omniORB\CORBA.py", line 556, in _non_existent
+    return self._obj.nonExistent()
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 15:52:12,907 data WARNING Dead connection: 10d6cd40-1a50-11ea-a9ff-40f02f22cc81
+2019-12-09 15:52:13,937 data WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 1624, in disconnectNext
+    return p.notify_disconnect(connector_profile.connector_id)
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTM_IDL\RTC_idl.py", line 1207, in notify_disconnect
+    return self._obj.invoke("notify_disconnect", _0_RTC.PortService._d_notify_disconnect, args)
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 15:56:36,943 data WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 2262, in checkPorts
+    if port._non_existent():
+  File "C:\Python27\lib\site-packages\omniORB\CORBA.py", line 556, in _non_existent
+    return self._obj.nonExistent()
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 15:56:36,943 data WARNING Dead connection: 03983000-1a51-11ea-8fd6-40f02f22cc81
+2019-12-09 15:56:37,959 data WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 1624, in disconnectNext
+    return p.notify_disconnect(connector_profile.connector_id)
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTM_IDL\RTC_idl.py", line 1207, in notify_disconnect
+    return self._obj.invoke("notify_disconnect", _0_RTC.PortService._d_notify_disconnect, args)
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 16:02:55,237 data WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 2262, in checkPorts
+    if port._non_existent():
+  File "C:\Python27\lib\site-packages\omniORB\CORBA.py", line 556, in _non_existent
+    return self._obj.nonExistent()
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 16:02:55,237 data WARNING Dead connection: c48d01ee-1a51-11ea-ae13-40f02f22cc81
+2019-12-09 16:02:56,269 data WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 1624, in disconnectNext
+    return p.notify_disconnect(connector_profile.connector_id)
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTM_IDL\RTC_idl.py", line 1207, in notify_disconnect
+    return self._obj.invoke("notify_disconnect", _0_RTC.PortService._d_notify_disconnect, args)
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 16:03:43,592 data WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 2262, in checkPorts
+    if port._non_existent():
+  File "C:\Python27\lib\site-packages\omniORB\CORBA.py", line 556, in _non_existent
+    return self._obj.nonExistent()
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 16:03:43,594 data WARNING Dead connection: f5dc255e-1a51-11ea-96e1-40f02f22cc81
+2019-12-09 16:03:44,599 data WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 1624, in disconnectNext
+    return p.notify_disconnect(connector_profile.connector_id)
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTM_IDL\RTC_idl.py", line 1207, in notify_disconnect
+    return self._obj.invoke("notify_disconnect", _0_RTC.PortService._d_notify_disconnect, args)
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 16:06:21,851 data WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 2262, in checkPorts
+    if port._non_existent():
+  File "C:\Python27\lib\site-packages\omniORB\CORBA.py", line 556, in _non_existent
+    return self._obj.nonExistent()
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 16:06:21,851 data WARNING Dead connection: 465fdef0-1a52-11ea-be11-40f02f22cc81
+2019-12-09 16:06:22,882 data WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 1624, in disconnectNext
+    return p.notify_disconnect(connector_profile.connector_id)
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTM_IDL\RTC_idl.py", line 1207, in notify_disconnect
+    return self._obj.invoke("notify_disconnect", _0_RTC.PortService._d_notify_disconnect, args)
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 16:09:25,450 data WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 2262, in checkPorts
+    if port._non_existent():
+  File "C:\Python27\lib\site-packages\omniORB\CORBA.py", line 556, in _non_existent
+    return self._obj.nonExistent()
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 16:09:25,450 data WARNING Dead connection: ca5d1600-1a52-11ea-9312-40f02f22cc81
+2019-12-09 16:09:26,470 data WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 1624, in disconnectNext
+    return p.notify_disconnect(connector_profile.connector_id)
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTM_IDL\RTC_idl.py", line 1207, in notify_disconnect
+    return self._obj.invoke("notify_disconnect", _0_RTC.PortService._d_notify_disconnect, args)
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 16:10:57,970 data WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 2262, in checkPorts
+    if port._non_existent():
+  File "C:\Python27\lib\site-packages\omniORB\CORBA.py", line 556, in _non_existent
+    return self._obj.nonExistent()
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 16:10:57,970 data WARNING Dead connection: 08906530-1a53-11ea-8335-40f02f22cc81
+2019-12-09 16:10:58,000 InPortCorbaCdrConsumer ERROR Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\InPortCorbaCdrConsumer.py", line 157, in put
+    return self.convertReturnCode(inportcdr.put(data))
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTM_IDL\DataPort_idl.py", line 79, in put
+    return self._obj.invoke("put", _0_OpenRTM.InPortCdr._d_put, args)
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 16:10:58,973 data WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 1624, in disconnectNext
+    return p.notify_disconnect(connector_profile.connector_id)
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTM_IDL\RTC_idl.py", line 1207, in notify_disconnect
+    return self._obj.invoke("notify_disconnect", _0_RTC.PortService._d_notify_disconnect, args)
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 16:10:58,982 rtobject ERROR Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTObject.py", line 1560, in on_execute
+    ret = self.onExecute(ec_id)
+  File "C:\workspacess\Change\Change.py", line 147, in onExecute
+    self._dataOut.write()
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\OutPort.py", line 185, in write
+    self.disconnect(con.id())
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 829, in disconnect
+    if len(prof.ports) < 1:
+UnboundLocalError: local variable 'prof' referenced before assignment
+
+2019-12-09 16:12:01,401 data WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 2262, in checkPorts
+    if port._non_existent():
+  File "C:\Python27\lib\site-packages\omniORB\CORBA.py", line 556, in _non_existent
+    return self._obj.nonExistent()
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 16:12:01,401 data WARNING Dead connection: 2bfbc730-1a53-11ea-ba37-40f02f22cc81
+2019-12-09 16:12:02,413 data WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 1624, in disconnectNext
+    return p.notify_disconnect(connector_profile.connector_id)
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTM_IDL\RTC_idl.py", line 1207, in notify_disconnect
+    return self._obj.invoke("notify_disconnect", _0_RTC.PortService._d_notify_disconnect, args)
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+

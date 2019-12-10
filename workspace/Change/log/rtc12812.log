@@ -1,0 +1,37 @@
+2019-12-07 19:43:47,036 manager INFO 1.1.0
+2019-12-07 19:43:47,036 manager INFO Copyright (C) 2003-2010
+2019-12-07 19:43:47,038 manager INFO   Noriaki Ando
+2019-12-07 19:43:47,038 manager INFO   Intelligent Systems Research Institute, AIST
+2019-12-07 19:43:47,038 manager INFO Manager starting.
+2019-12-07 19:43:47,038 manager INFO Starting local logging.
+2019-12-07 19:43:47,045 manager.namingmanager INFO NameServer connection succeeded: corba/localhost
+2019-12-07 19:43:49,055 ManagerServant INFO Master manager not found
+2019-12-07 19:43:49,058 manager WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\Manager.py", line 1900, in initManagerServant
+    reffile = file(self._config.getProperty("manager.refstring_path"),'w')
+IOError: [Errno 2] No such file or directory: '/var/log/rtcmanager.ref'
+
+2019-12-07 19:43:49,059 LocalServiceAdmin INFO All the local services are enabled.
+2019-12-07 19:43:49,069 manager INFO Component type conf file: Change.conf loaded.
+2019-12-07 19:43:49,075 ec_base INFO setRate(1000000.000000) done
+2019-12-07 19:43:49,076 ec_base INFO setRate(1000.000000) done
+2019-12-07 19:43:49,078 rtobject INFO 1 execution context was created.
+2019-12-07 19:43:49,085 rtobject INFO Initial active configuration set is default-set.
+2019-12-07 19:43:54,384 SdoServiceAdmin WARNING No available SDO service in the factory: 
+2019-12-07 19:43:54,384 SdoServiceAdmin ERROR type  already exists.
+2019-12-07 19:43:54,384 SdoServiceAdmin WARNING No available SDO service in the factory: IDL:OpenRTM/ComponentObserver:1.0
+2019-12-07 19:43:54,385 SdoServiceAdmin ERROR type 53fc83be-e6c7-4112-a73a-074a10e43a28 already exists.
+2019-12-07 19:43:58,943 rtobject ERROR Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTObject.py", line 1560, in on_execute
+    ret = self.onExecute(ec_id)
+  File "C:\workspacess\Change\Change.py", line 127, in onExecute
+    rawdata = int(line)
+ValueError: invalid literal for int() with base 10: ',0,0,0,0,0,0,0,0,0,0\r\n'
+
+2019-12-07 19:44:06,667 rtobject ERROR Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTObject.py", line 1560, in on_execute
+    ret = self.onExecute(ec_id)
+  File "C:\workspacess\Change\Change.py", line 127, in onExecute
+    rawdata = int(line)
+ValueError: invalid literal for int() with base 10: '1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n'
+
