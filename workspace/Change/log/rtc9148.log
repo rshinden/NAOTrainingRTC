@@ -1,0 +1,23 @@
+2019-12-07 19:20:51,328 manager INFO 1.1.0
+2019-12-07 19:20:51,328 manager INFO Copyright (C) 2003-2010
+2019-12-07 19:20:51,329 manager INFO   Noriaki Ando
+2019-12-07 19:20:51,329 manager INFO   Intelligent Systems Research Institute, AIST
+2019-12-07 19:20:51,329 manager INFO Manager starting.
+2019-12-07 19:20:51,329 manager INFO Starting local logging.
+2019-12-07 19:20:51,336 manager.namingmanager INFO NameServer connection succeeded: corba/localhost
+2019-12-07 19:20:53,374 ManagerServant INFO Master manager not found
+2019-12-07 19:20:53,374 manager WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\Manager.py", line 1900, in initManagerServant
+    reffile = file(self._config.getProperty("manager.refstring_path"),'w')
+IOError: [Errno 2] No such file or directory: '/var/log/rtcmanager.ref'
+
+2019-12-07 19:20:53,374 LocalServiceAdmin INFO All the local services are enabled.
+2019-12-07 19:20:53,390 manager INFO Component type conf file: Change.conf loaded.
+2019-12-07 19:20:53,390 ec_base INFO setRate(1000000.000000) done
+2019-12-07 19:20:53,390 ec_base INFO setRate(1000.000000) done
+2019-12-07 19:20:53,390 rtobject INFO 1 execution context was created.
+2019-12-07 19:20:53,390 rtobject INFO Initial active configuration set is default-set.
+2019-12-07 19:20:57,951 SdoServiceAdmin WARNING No available SDO service in the factory: 
+2019-12-07 19:20:57,951 SdoServiceAdmin ERROR type  already exists.
+2019-12-07 19:20:57,951 SdoServiceAdmin WARNING No available SDO service in the factory: IDL:OpenRTM/ComponentObserver:1.0
+2019-12-07 19:20:57,951 SdoServiceAdmin ERROR type bc2a32ff-eecb-481c-8a21-32100275d5da already exists.

@@ -1,0 +1,50 @@
+2019-12-09 19:16:40,858 manager INFO 1.1.0
+2019-12-09 19:16:40,858 manager INFO Copyright (C) 2003-2010
+2019-12-09 19:16:40,858 manager INFO   Noriaki Ando
+2019-12-09 19:16:40,858 manager INFO   Intelligent Systems Research Institute, AIST
+2019-12-09 19:16:40,858 manager INFO Manager starting.
+2019-12-09 19:16:40,858 manager INFO Starting local logging.
+2019-12-09 19:16:40,858 manager.namingmanager INFO NameServer connection succeeded: corba/localhost
+2019-12-09 19:16:42,920 ManagerServant INFO Master manager not found
+2019-12-09 19:16:42,920 manager WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\Manager.py", line 1900, in initManagerServant
+    reffile = file(self._config.getProperty("manager.refstring_path"),'w')
+IOError: [Errno 2] No such file or directory: '/var/log/rtcmanager.ref'
+
+2019-12-09 19:16:42,920 LocalServiceAdmin INFO All the local services are enabled.
+2019-12-09 19:16:42,936 manager INFO Component type conf file: Change.conf loaded.
+2019-12-09 19:16:42,936 ec_base INFO setRate(1000000.000000) done
+2019-12-09 19:16:42,936 ec_base INFO setRate(1000.000000) done
+2019-12-09 19:16:42,936 rtobject INFO 1 execution context was created.
+2019-12-09 19:16:42,950 rtobject INFO Initial active configuration set is default-set.
+2019-12-09 19:20:09,599 SdoServiceAdmin WARNING No available SDO service in the factory: 
+2019-12-09 19:20:09,599 SdoServiceAdmin ERROR type  already exists.
+2019-12-09 19:20:09,601 SdoServiceAdmin WARNING No available SDO service in the factory: IDL:OpenRTM/ComponentObserver:1.0
+2019-12-09 19:20:09,601 SdoServiceAdmin ERROR type 060b0a48-1979-483d-b3d3-e5784bb56f9d already exists.
+2019-12-09 19:25:05,253 rtobject ERROR Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTObject.py", line 1560, in on_execute
+    ret = self.onExecute(ec_id)
+  File "C:\workspacess\Change\Change.py", line 134, in onExecute
+    FSR_dic.setdefault(("FSR" + str(i)), float(rawdata[i-1]))
+ValueError: could not convert string to float: 
+
+2019-12-09 19:25:07,569 ec_worker ERROR State of the RTC is not ACTIVE_STATE.
+2019-12-09 19:25:43,203 data WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 2262, in checkPorts
+    if port._non_existent():
+  File "C:\Python27\lib\site-packages\omniORB\CORBA.py", line 556, in _non_existent
+    return self._obj.nonExistent()
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 19:25:43,203 data WARNING Dead connection: bb686580-1a6d-11ea-bd02-40f02f22cc81
+2019-12-09 19:25:44,233 data WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 1624, in disconnectNext
+    return p.notify_disconnect(connector_profile.connector_id)
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTM_IDL\RTC_idl.py", line 1207, in notify_disconnect
+    return self._obj.invoke("notify_disconnect", _0_RTC.PortService._d_notify_disconnect, args)
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 20:35:02,846 SdoServiceAdmin WARNING No available SDO service in the factory: 
+2019-12-09 20:35:02,848 SdoServiceAdmin ERROR type  already exists.
+2019-12-09 20:35:02,848 SdoServiceAdmin WARNING No available SDO service in the factory: IDL:OpenRTM/ComponentObserver:1.0
+2019-12-09 20:35:02,848 SdoServiceAdmin ERROR type 9a31b7b6-e60a-4d6f-969e-dfe5520392aa already exists.

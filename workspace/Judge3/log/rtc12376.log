@@ -1,0 +1,31 @@
+2019-12-09 12:37:25,197 manager INFO 1.1.0
+2019-12-09 12:37:25,197 manager INFO Copyright (C) 2003-2010
+2019-12-09 12:37:25,197 manager INFO   Noriaki Ando
+2019-12-09 12:37:25,198 manager INFO   Intelligent Systems Research Institute, AIST
+2019-12-09 12:37:25,198 manager INFO Manager starting.
+2019-12-09 12:37:25,198 manager INFO Starting local logging.
+2019-12-09 12:37:25,223 manager.namingmanager INFO NameServer connection succeeded: corba/localhost
+2019-12-09 12:37:27,230 ManagerServant INFO Master manager not found
+2019-12-09 12:37:27,233 manager WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\Manager.py", line 1900, in initManagerServant
+    reffile = file(self._config.getProperty("manager.refstring_path"),'w')
+IOError: [Errno 2] No such file or directory: '/var/log/rtcmanager.ref'
+
+2019-12-09 12:37:27,236 LocalServiceAdmin INFO All the local services are enabled.
+2019-12-09 12:37:27,276 manager INFO Component type conf file: Judge3.conf loaded.
+2019-12-09 12:37:27,279 ec_base INFO setRate(1000000.000000) done
+2019-12-09 12:37:27,280 ec_base INFO setRate(1000.000000) done
+2019-12-09 12:37:27,280 rtobject INFO 1 execution context was created.
+2019-12-09 12:37:27,288 rtobject INFO Initial active configuration set is default.
+2019-12-09 12:37:31,864 SdoServiceAdmin WARNING No available SDO service in the factory: 
+2019-12-09 12:37:31,864 SdoServiceAdmin ERROR type  already exists.
+2019-12-09 12:37:31,864 SdoServiceAdmin WARNING No available SDO service in the factory: IDL:OpenRTM/ComponentObserver:1.0
+2019-12-09 12:37:31,864 SdoServiceAdmin ERROR type ba078938-805d-4b12-bd41-405d56d40ca6 already exists.
+2019-12-09 12:37:50,101 rtobject ERROR Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTObject.py", line 1560, in on_execute
+    ret = self.onExecute(ec_id)
+  File "C:\workspacess\Judge3\Judge3.py", line 193, in onExecute
+    self._outport.write()
+AttributeError: 'Judge3' object has no attribute '_outport'
+
+2019-12-09 12:37:53,904 ec_worker ERROR State of the RTC is not ACTIVE_STATE.

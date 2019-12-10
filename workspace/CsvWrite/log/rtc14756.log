@@ -1,0 +1,55 @@
+2019-12-09 19:00:18,096 manager INFO 1.1.0
+2019-12-09 19:00:18,096 manager INFO Copyright (C) 2003-2010
+2019-12-09 19:00:18,096 manager INFO   Noriaki Ando
+2019-12-09 19:00:18,096 manager INFO   Intelligent Systems Research Institute, AIST
+2019-12-09 19:00:18,096 manager INFO Manager starting.
+2019-12-09 19:00:18,096 manager INFO Starting local logging.
+2019-12-09 19:00:18,096 manager.namingmanager INFO NameServer connection succeeded: corba/localhost
+2019-12-09 19:00:20,117 ManagerServant INFO Master manager not found
+2019-12-09 19:00:20,118 manager WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\Manager.py", line 1900, in initManagerServant
+    reffile = file(self._config.getProperty("manager.refstring_path"),'w')
+IOError: [Errno 2] No such file or directory: '/var/log/rtcmanager.ref'
+
+2019-12-09 19:00:20,118 LocalServiceAdmin INFO All the local services are enabled.
+2019-12-09 19:00:20,204 ec_base INFO setRate(1000000.000000) done
+2019-12-09 19:00:20,204 ec_base INFO setRate(1000.000000) done
+2019-12-09 19:00:20,206 rtobject INFO 1 execution context was created.
+2019-12-09 19:00:20,210 rtobject INFO Initial active configuration set is default-set.
+2019-12-09 19:00:24,992 SdoServiceAdmin WARNING No available SDO service in the factory: 
+2019-12-09 19:00:24,992 SdoServiceAdmin ERROR type  already exists.
+2019-12-09 19:00:24,993 SdoServiceAdmin WARNING No available SDO service in the factory: IDL:OpenRTM/ComponentObserver:1.0
+2019-12-09 19:00:24,993 SdoServiceAdmin ERROR type 1d04af5c-879a-4057-90b6-78797bda3bc4 already exists.
+2019-12-09 19:00:45,933 ec_worker ERROR State of the RTC is not ACTIVE_STATE.
+2019-12-09 19:00:56,270 ec_worker ERROR State of the RTC is not ACTIVE_STATE.
+2019-12-09 19:02:22,042 sensor WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 2262, in checkPorts
+    if port._non_existent():
+  File "C:\Python27\lib\site-packages\omniORB\CORBA.py", line 556, in _non_existent
+    return self._obj.nonExistent()
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 19:02:22,042 sensor WARNING Dead connection: ba460cf0-1a6a-11ea-8ea9-40f02f22cc81
+2019-12-09 19:02:23,068 sensor WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 836, in disconnect
+    return p.notify_disconnect(connector_id)
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTM_IDL\RTC_idl.py", line 1207, in notify_disconnect
+    return self._obj.invoke("notify_disconnect", _0_RTC.PortService._d_notify_disconnect, args)
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 19:02:47,533 ec_worker ERROR State of the RTC is not ACTIVE_STATE.
+2019-12-09 19:03:00,443 sensor WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 2262, in checkPorts
+    if port._non_existent():
+  File "C:\Python27\lib\site-packages\omniORB\CORBA.py", line 556, in _non_existent
+    return self._obj.nonExistent()
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+
+2019-12-09 19:03:00,443 sensor WARNING Dead connection: 0b353280-1a6b-11ea-b6fe-40f02f22cc81
+2019-12-09 19:03:01,461 sensor WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\PortBase.py", line 836, in disconnect
+    return p.notify_disconnect(connector_id)
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTM_IDL\RTC_idl.py", line 1207, in notify_disconnect
+    return self._obj.invoke("notify_disconnect", _0_RTC.PortService._d_notify_disconnect, args)
+TRANSIENT: CORBA.TRANSIENT(omniORB.TRANSIENT_ConnectFailed, CORBA.COMPLETED_NO)
+

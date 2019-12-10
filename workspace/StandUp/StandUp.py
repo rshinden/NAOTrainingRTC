@@ -73,21 +73,20 @@ class StandUp(OpenRTM_aist.DataFlowComponentBase):
 		OpenRTM_aist.DataFlowComponentBase.__init__(self, manager)
 
 		judge_arg = [None] * ((len(RTC._d_TimedLong) - 4) / 2)
-		self._d_judge = RTC.TimedLong(*judge_arg)
+		self._d_judge = RTC.TimedLong(RTC.Time(0,0), 0)
 		"""
 		"""
-		self._judgeIn = OpenRTM_aist.InPort("judge", self._d_judge)
-		count_arg = [None] * ((len(RTC._d_TimedString) - 4) / 2)
-		self._d_count = RTC.TimedLong(*count_arg)
+		self._judgeIn = OpenRTM_aist.InPort("judge", self._d_judge)	
+		balance_arg = [None] * ((len(RTC._d_TimedLong) - 4) / 2)
+		self._d_balance = RTC.TimedLong(RTC.Time(0,0), 0)
 		"""
 		"""
-		self._countIn = OpenRTM_aist.InPort("count", self._d_count)		
-		sensor_arg = [None] * ((len(RTC._d_TimedString) - 4) / 2)
-		self._d_sensor = RTC.TimedString(*sensor_arg)
+		self._balanceIn = OpenRTM_aist.InPort("balance", self._d_balance)		
+		count_arg = [None] * ((len(RTC._d_TimedLong) - 4) / 2)
+		self._d_count = RTC.TimedLong(RTC.Time(0,0), 0)
 		"""
 		"""
-		self._sensorIn = OpenRTM_aist.InPort("sensor", self._d_sensor)		
-
+		self._countIn = OpenRTM_aist.InPort("count", self._d_count)	
 		fin_arg = [None] * ((len(RTC._d_TimedString) - 4) / 2)
 		self._d_fin = RTC.TimedString(RTC.Time(0,0), "")
 		"""
@@ -103,6 +102,7 @@ class StandUp(OpenRTM_aist.DataFlowComponentBase):
 		self._data = 3
 		self._FSR_left_front = 0
 		self._FSR_right_front = 0
+		self._balance = 0
 		standtime = self._endtime - self._starttime
 
 
@@ -145,8 +145,8 @@ class StandUp(OpenRTM_aist.DataFlowComponentBase):
 		
 		# Set InPort buffers
 		self.addInPort("judge",self._judgeIn)
+		self.addInPort("balance",self._balanceIn)
 		self.addInPort("count",self._countIn)
-		self.addInPort("sensor",self._sensorIn)
 		
 		# Set OutPort buffers
 		self.addOutPort("fin",self._finOut)
@@ -169,47 +169,7 @@ class StandUp(OpenRTM_aist.DataFlowComponentBase):
 	#	# @return RTC::ReturnCode_t
 	#
 	#	# 
-	#def onFinalize(self):
-	#
-	#	return RTC.RTC_OK
-	
-	#	##
-	#	#
-	#	# The startup action when ExecutionContext startup
-	#	# former rtc_starting_entry()
-	#	# 
-	#	# @param ec_id target ExecutionContext Id
-	#	#
-	#	# @return RTC::ReturnCode_t
-	#	#
-	#	#
-	#def onStartup(self, ec_id):
-	#
-	#	return RTC.RTC_OK
-	
-	#	##
-	#	#
-	#	# The shutdown action when ExecutionContext stop
-	#	# former rtc_stopping_entry()
-	#	#
-	#	# @param ec_id target ExecutionContext Id
-	#	#
-	#	# @return RTC::ReturnCode_t
-	#	#
-	#	#
-	#def onShutdown(self, ec_id):
-	#
-	#	return RTC.RTC_OK
-	
-		##
-		#
-		# The activated action (Active state entry action)
-		# former rtc_active_entry()
-		#
-		# @param ec_id target ExecutionContext Id
-		# 
-		# @return RTC::ReturnCode_t
-		#
+
 		#
 	def onActivated(self, ec_id):
 		print("activate standUp")	
@@ -244,80 +204,68 @@ class StandUp(OpenRTM_aist.DataFlowComponentBase):
 		if self._countIn.isNew():
 			self._d_count = self._countIn.read()
 			self._count_number = self._d_count.data
-			print("recieve;" ,self._count_number)
+			#print("recieve;" ,self._count_number)
 			self._start = "true"
 			NAO_activate(self._NAO_IPaddress[0], self._NAO_Port[0])
-		#センサ値のよみこみ
-		if self._sensorIn.isNew():
-			self._d_sensor = self._sensorIn.read()
-			line = self._d_sensor.data
-			line_str = str(line)
-			data = re.split("[,']", line_str)
-			FSR_dic = {}
-			for i in range (1,17,1):
-				FSR_dic.setdefault(("FSR" + str(i)), float(data[i-1]))	
-			i = 0
-			#センサ値の公正
-			for i in range (1,17,1):
-				if FSR_dic["FSR" + str(i)] == 0:
-					FSR_dic["FSR" + str(i)] = 0
-				elif (1 <= FSR_dic["FSR" + str(i)]) and (FSR_dic["FSR" + str(i)] < 990):
-					FSR_dic["FSR" + str(i)] = 0.069*math.exp(0.0044*FSR_dic["FSR" + str(i)])*9.8 
-				elif( 990 <= FSR_dic["FSR" + str(i)]) and (FSR_dic["FSR" + str(i)] <= 1024): 
-					FSR_dic["FSR" + str(i)] = 3E-06*math.exp(0.0145*FSR_dic["FSR" + str(i)])*9.8
-			self._FSR_left_front =  FSR_dic['FSR1'] + FSR_dic['FSR2'] + FSR_dic['FSR3'] + FSR_dic['FSR4'] + FSR_dic['FSR5']
-			self._FSR_right_front =  FSR_dic['FSR9'] + FSR_dic['FSR10'] + FSR_dic['FSR11'] + FSR_dic['FSR12'] + FSR_dic['FSR13']
+		#バランスの取得
+		if self._balanceIn.isNew():
+			self._d_balance = self._balanceIn.read()
+			self._balance = self._d_balance.data
 		#立ち上がり判定の取得
 		if self._judgeIn.isNew():
 			self._d_judge = self._judgeIn.read()
 			self._data = self._d_judge.data
-			print(self._data)
-
+			print("judge is ",self._data)
 		#NAOトレーニング開始
 		if 0 <= self._count < (self._count_number - 1) :
 			print(self._count,"count")
 			if self._start == "true":
 				if self._data == 1:
-					#print(self._data,"stand")
+					print(self._data,"stand")
 					self._endtime = time.time()
 					NAO_cheer(self._NAO_IPaddress[0], self._NAO_Port[0])
 					self._start = "false"
+					print("cheer")
 				elif self._data == 0:
 					print("sitting")
 			if self._start == "false":
 				if self._data == 0:
 					standtime = self._endtime - self._starttime
+					#立ち上がりが早い速度場合
 					if (0 <= standtime <2):
 						NAO_stand_high(self._NAO_IPaddress[0], self._NAO_Port[0])
 						self._starttime = time.time()
 						self._start = "true"
 						self._count += 1
+					#立ち上がりが普通の速度の場合
 					elif (2 <= standtime <5):
 						NAO_stand(self._NAO_IPaddress[0], self._NAO_Port[0])
 						self._starttime = time.time()
 						self._start = "true"
 						self._count += 1
+					#立ち上がりがゆっくりの場合
 					else:
 						NAO_stand_low(self._NAO_IPaddress[0], self._NAO_Port[0])
 						self._starttime = time.time()
 						self._count += 1
 					self._start = "true"
-					#print(self._data,"sitting")
+					print(self._data,"sitting")
+				#左右のバランス
 				if self._data == 1:
-					if self._FSR_left_front >= self._FSR_right_front + 10 :
+					if self._balance == 2 :
 						NAO_left(self._NAO_IPaddress[0], self._NAO_Port[0])
-					if self._FSR_right_front >= self._FSR_right_front +10:
+					if self._balance == 3:
 						NAO_right(self._NAO_IPaddress[0], self._NAO_Port[0])
 			#終了合図
-			if self._count == (self._count_number - 1):
-				NAO_end(self._NAO_IPaddress[0], self._NAO_Port[0])
-				print("end")
-				self._count += 1
-				end = "fin"
-				self._d_fin.data = end
-				self._finOut.write()
-				print(self._d_fin.data)
-	
+		if ((self._count == (self._count_number - 1)) and (self._data == 1)):
+			NAO_end(self._NAO_IPaddress[0], self._NAO_Port[0])
+			print("end")
+			self._count += 1
+			end = "fin"
+			self._d_fin.data = end
+			self._finOut.write()
+			print(self._d_fin.data)
+
 		return RTC.RTC_OK
 	
 	#	##

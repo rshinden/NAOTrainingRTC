@@ -1,0 +1,29 @@
+2019-12-09 16:10:40,503 manager INFO 1.1.0
+2019-12-09 16:10:40,503 manager INFO Copyright (C) 2003-2010
+2019-12-09 16:10:40,503 manager INFO   Noriaki Ando
+2019-12-09 16:10:40,503 manager INFO   Intelligent Systems Research Institute, AIST
+2019-12-09 16:10:40,503 manager INFO Manager starting.
+2019-12-09 16:10:40,503 manager INFO Starting local logging.
+2019-12-09 16:10:40,509 manager.namingmanager INFO NameServer connection succeeded: corba/localhost
+2019-12-09 16:10:42,528 ManagerServant INFO Master manager not found
+2019-12-09 16:10:42,530 manager WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\Manager.py", line 1900, in initManagerServant
+    reffile = file(self._config.getProperty("manager.refstring_path"),'w')
+IOError: [Errno 2] No such file or directory: '/var/log/rtcmanager.ref'
+
+2019-12-09 16:10:42,532 LocalServiceAdmin INFO All the local services are enabled.
+2019-12-09 16:10:42,548 ec_base INFO setRate(1000000.000000) done
+2019-12-09 16:10:42,548 ec_base INFO setRate(1000.000000) done
+2019-12-09 16:10:42,549 rtobject INFO 1 execution context was created.
+2019-12-09 16:10:42,559 rtobject INFO Initial active configuration set is default-set.
+2019-12-09 16:10:48,302 SdoServiceAdmin WARNING No available SDO service in the factory: 
+2019-12-09 16:10:48,302 SdoServiceAdmin ERROR type  already exists.
+2019-12-09 16:10:48,302 SdoServiceAdmin WARNING No available SDO service in the factory: IDL:OpenRTM/ComponentObserver:1.0
+2019-12-09 16:10:48,302 SdoServiceAdmin ERROR type 9c196f79-0f00-4137-b947-9140c647767a already exists.
+2019-12-09 16:10:53,789 rtobject ERROR Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTObject.py", line 1560, in on_execute
+    ret = self.onExecute(ec_id)
+  File "C:\workspacess\CsvWrite\CsvWrite.py", line 214, in onExecute
+    FSR_dic.setdefault(("FSR" + str(i)), line[i-1])
+IndexError: list index out of range
+
