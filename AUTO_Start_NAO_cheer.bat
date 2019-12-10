@@ -13,8 +13,10 @@ timeout /T 3
 echo ### RTC起動 ###
 cd C:\workspaces\SerialConnect
 start /MIN SerialConnect.py
-cd C:\workspaces\Judge
-start /MIN judge.py
+cd C:\workspaces\Change
+start /MIN Change.py
+cd C:\workspaces\Judge3
+start /MIN judge3.py
 cd C:\workspaces\StandUp
 start /MIN StandUp.py
 cd C:\workspaces\CsvWrite
@@ -51,11 +53,12 @@ echo ### RTCポート接続 ###
 call rtcon /localhost/%NAME%.host_cxt/PortAudioInput0.rtc:AudioDataOut /localhost/%NAME%.host_cxt/JuliusRTC0.rtc:data
 call rtcon /localhost/%NAME%.host_cxt/JuliusRTC0.rtc:result /localhost/%NAME%.host_cxt/SEAT0.rtc:speechin
 call rtcon /localhost/%NAME%.host_cxt/SEAT0.rtc:speechout /localhost/%NAME%.host_cxt/CsvWrite0.rtc:sign
-call rtcon /localhost/%NAME%.host_cxt/SEAT0.rtc:speechout /localhost/%NAME%.host_cxt/Judge0.rtc:sign
-call rtcon /localhost/%NAME%.host_cxt/SerialConnect0.rtc:sensor /localhost/%NAME%.host_cxt/CsvWrite0.rtc:sensor
-call rtcon /localhost/%NAME%.host_cxt/SerialConnect0.rtc:sensor /localhost/%NAME%.host_cxt/Judge0.rtc:data
-call rtcon /localhost/%NAME%.host_cxt/SerialConnect0.rtc:sensor /localhost/%NAME%.host_cxt/StandUp0.rtc:sensor
-call rtcon /localhost/%NAME%.host_cxt/Judge0.rtc:out /localhost/%NAME%.host_cxt/StandUp0.rtc:judge
+call rtcon /localhost/%NAME%.host_cxt/SEAT0.rtc:speechout /localhost/%NAME%.host_cxt/Judge30.rtc:sign
+call rtcon /localhost/%NAME%.host_cxt/SerialConnect0.rtc:sensor /localhost/%NAME%.host_cxt/Change0.rtc:rawdata
+call rtcon /localhost/%NAME%.host_cxt/Change0.rtc:data /localhost/%NAME%.host_cxt/Judge30.rtc:data
+call rtcon /localhost/%NAME%.host_cxt/Change0.rtc:data /localhost/%NAME%.host_cxt/StandUp0.rtc:sensor
+call rtcon /localhost/%NAME%.host_cxt/Judge30.rtc:result /localhost/%NAME%.host_cxt/StandUp0.rtc:judge
+call rtcon /localhost/%NAME%.host_cxt/Judge30.rtc:balance /localhost/%NAME%.host_cxt/StandUp0.rtc:balance
 call rtcon /localhost/%NAME%.host_cxt/StandUp0.rtc:fin /localhost/%NAME%.host_cxt/CsvWrite0.rtc:fin
 call rtcon /localhost/%NAME%.host_cxt/StandUp0.rtc:fin /localhost/%NAME%.host_cxt/Calc0.rtc:fin
 call rtcon /localhost/%NAME%.host_cxt/Calc0.rtc:time /localhost/%NAME%.host_cxt/GUI0.rtc:time
@@ -70,7 +73,8 @@ timeout /T 3
 call rtact /localhost/%NAME%.host_cxt/PortAudioInput0.rtc
 call rtact /localhost/%NAME%.host_cxt/JuliusRTC0.rtc
 call rtact /localhost/%NAME%.host_cxt/SEAT0.rtc
-call rtact /localhost/%NAME%.host_cxt/Judge0.rtc
+call rtact /localhost/%NAME%.host_cxt/Change0.rtc
+call rtact /localhost/%NAME%.host_cxt/Judge30.rtc
 call rtact /localhost/%NAME%.host_cxt/CsvWrite0.rtc
 call rtact /localhost/%NAME%.host_cxt/StandUp0.rtc
 call rtact /localhost/%NAME%.host_cxt/Calc0.rtc
